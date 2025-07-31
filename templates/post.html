@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-lg-5">
+                <a class="navbar-brand" href="/">{{params['blog_name']}}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/contact">SignUp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="py-5" style="background-image: url('{{ url_for('static', filename='assets/post.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="container px-lg-5">
+                    <div class="m-4 m-lg-5 text-center">
+                        <h1 class="display-5 fw-bold">{{params['blog_headline']}}</h1>
+                            <h4>{{post.title}}</h4>
+                    </div>
+                </div>
+        </header>
+        <section class="container" style="margin-top: 50px;">
+
+        <!-- Page Content-->
+        <section class="pt-4">
+            <div class="container px-lg-5">
+                <!-- Page Features-->
+
+                        <div class="card bg-light border-0 h-100" >
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0 " style="background-color: #e9ecef">
+                    <section class="container" style="margin-top: 50px;">
+                                <p class="mb-0">{{post.content}}</p>
+                            </div>
+                        </div>
+
+            </div>
+        </section>
+                    <section class="container" style="margin-top: 50px;">
+
+{% endblock %}
+

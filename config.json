@@ -1,0 +1,17 @@
+{
+  "params":
+  {
+    "local_server": "mysql://root:@localhost/thedevopguy",
+    "prod_server": "mysql://root:@localhost/thedevopguy",
+    "blog_name": "TheDevOpGuy",
+    "blog_headline": "All About DevOps",
+    "blog_description": "One stop for all kind of informations and new technologies going around in the world of devops",
+    "gmail-user": "",
+    "gmail-password": "",
+    "number_of_posts": 4,
+    "admin_user": "",
+    "admin_password": "",
+    "upload_location": ""
+  }
+
+}

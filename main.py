@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect , flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from sqlalchemy.orm import DeclarativeBase
@@ -87,8 +87,11 @@ def admin():
         password = request.form.get('password')
         if username == params['admin_user'] and password == params['admin_password']:
             session['username'] = params['admin_user']
+            flash("Login successful!", "success")
             posts = Posts.query.filter_by().all()[0:params['number_of_posts']]
             return render_template('admin.html', params=params,posts=posts)
+        else:
+            flash("Invalid Username and Password", "danger")
     else:
         pass
 
@@ -131,10 +134,11 @@ def contact():
         entry = User(firstname=firstname, lastname=lastname, username=username, email=email, address=address,country=country,state=state,number=number)
         db.session.add(entry)
         db.session.commit()
+        flash("Login successful!", "success")
         # Integrate celery and process the mail async
-        mail.send_message(sender=email, recipients=params['gmail-user'],
-                          body=f'Hello {firstname} {lastname}!',
-                          subject=f'Hello {firstname} {lastname}!')
+#        mail.send_message(sender=email, recipients=params['gmail-user'],
+#                          body=f'Hello {firstname} {lastname}!',
+#                          subject=f'Hello {firstname} {lastname}!')
     return render_template('contact.html',params = params)
 
 app.run(debug=True)

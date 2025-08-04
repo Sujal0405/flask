@@ -40,7 +40,18 @@
                 <label class="form-check-label" for="rememberMe">Remember me</label>
             </div>
             <button type="submit" class="btn btn-primary w-100" href="/jinja">Login</button>
-        </form>
+<section class="container" style="margin-top: 50px;">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} text-centre" style="width: 150; height: 50px; line-height: 15px; text-align: center;">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+	</form>
     </div>
 
     <!-- Bootstrap JS CDN (optional, for certain Bootstrap components) -->
